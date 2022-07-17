@@ -1,19 +1,95 @@
 .App {
   text-align: center;
+  background-color: #fcfbff;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+  padding-top: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h3 {
+  padding: 20px;
 }
-
-.App-header {
+form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f3ff;
+  margin-top: 40px;
+}
+.formControl {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+.formControl input {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  width: 250px;
+}
+.formControl input:focus {
+  border: 2px solid #7c3aed;
+}
+form button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin: 25px 0;
+  padding: 6px 12px;
+  color: #fff;
+  background-color: #7c3aed;
+  border-radius: 5px;
+}
+.contactList {
+  margin: auto;
+  width: 20rem;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: #f5f3ff;
+}
+.contactsData {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.contactsData p {
+  padding: 5px 0;
+}
+.contactList button {
+  margin-top: 5px;
+  margin-left: 235%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
+  border: 1px solid rgb(194, 90, 90);
+  border-radius: 5px;
+}
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,17 +98,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+} */
