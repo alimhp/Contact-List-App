@@ -79,7 +79,7 @@ form button {
 }
 .contactList button {
   margin-top: 5px;
-  margin-left: 235%;
+  /* margin-left: 235%; */
   cursor: pointer;
   border: none;
   outline: none;

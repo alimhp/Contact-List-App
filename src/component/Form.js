@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Form = (props) => {
   const [Input, setInput] = useState({ name: "", email: "" });
@@ -11,6 +12,7 @@ const Form = (props) => {
     e.preventDefault();
     props.addTodoHandler(Input);
     setInput({ name: "", email: "" });
+    props.history.push("/");
   };
   return (
     <form onSubmit={submitHandler}>

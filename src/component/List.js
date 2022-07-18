@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import OneContact from "./OneContact";
 
 const List = ({ Contacts, ondelete }) => {
@@ -9,6 +10,14 @@ const List = ({ Contacts, ondelete }) => {
     });
   };
 
-  return <div >{renderContacts()}</div>;
+  return (
+    <div>
+      {" "}
+      <Link to="/add">
+        <button>add</button>
+      </Link>{" "}
+      {renderContacts()}
+    </div>
+  );
 };
 export default List;

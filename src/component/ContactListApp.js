@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Form from "./Form";
 import List from "./List";
 
@@ -13,16 +14,38 @@ const ContactList = () => {
     };
     setContacts([...Contacts, newContact]);
   };
+  //////////////////////////////////
   const deleteHandler = (id) => {
     console.log("clicked", id);
     const filteredContact = Contacts.filter((t) => t.id !== id);
     setContacts(filteredContact);
   };
+  //////////////////////////////////
+  useEffect(() => {
+    const savedContacts = JSON.parse(localStorage.getItem("contacts"));
+    if (savedContacts) setContacts(savedContacts);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(Contacts));
+  }, [Contacts]);
+  ///////////////////////////////////
+
   return (
-    <>
-      <Form addTodoHandler={addTodoHandler} />
-      <List Contacts={Contacts} ondelete={deleteHandler} />
-    </>
+    <Switch>
+      <Route
+        path="/add"
+        component={(props) => (
+          <Form addTodoHandler={addTodoHandler} {...props} />
+        )}
+      />
+      <Route
+        path="/"
+        exact
+        component={(props) => (
+          <List Contacts={Contacts} ondelete={deleteHandler} {...props} />
+        )}
+      />
+    </Switch>
   );
 };
 
