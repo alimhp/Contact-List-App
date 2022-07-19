@@ -36,6 +36,9 @@ const Form = (props) => {
       </div>
 
       <button type="submit">Add</button>
+      <Link to="/">
+        <button>contact list</button>
+      </Link>
     </form>
   );
 };

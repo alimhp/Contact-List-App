@@ -12,10 +12,10 @@ const List = ({ Contacts, ondelete }) => {
 
   return (
     <div>
-      {" "}
       <Link to="/add">
-        <button>add</button>
-      </Link>{" "}
+        <button className="button">add contact </button>
+      </Link>
+
       {renderContacts()}
     </div>
   );
