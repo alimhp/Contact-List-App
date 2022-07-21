@@ -1,0 +1,38 @@
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f3ff;
+    margin-top: 40px;
+
+}
+.formControl{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+.formControl input{
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    width: 250px;
+}
+.formControl input:focus{
+    border: 2px solid #7c3aed;
+}
+form button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin: 25px 0;
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #7c3aed;
+    border-radius: 5px;
+} 

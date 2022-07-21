@@ -3,38 +3,38 @@ import { useEffect, useState } from "react";
 import Form from "./Form";
 import List from "./List";
 import ContactDetail from "./ContactDetail";
-import axios from "axios";
 import getContacts from "../services/getContactsService";
 import deleteOneContact from "../services/deleteContactService";
 import addOneContact from "../services/addContactService";
+import EditContact from "./Edit/EditContact";
+import updateContact from "../services/updateContact";
 
 const ContactList = () => {
   const [Contacts, setContacts] = useState([]);
   ///////////////////////////////////
   const addTodoHandler = async (Input) => {
     try {
-      setContacts([
-        ...Contacts,
-        { id: Math.ceil(Math.random() * 100), ...Input },
-      ]);
-      await addOneContact(Input);
+      const { data } = await addOneContact(Input);
+      setContacts([...Contacts, data]);
     } catch (error) {}
   };
-  // const addTodoHandler = (Input) => {
-  //   const newContact = {
-  //     id: Math.floor(Math.random() * 100),
-  //     name: Input.name,
-  //     email: Input.email,
-  //   };
-  //   setContacts([...Contacts, newContact]);
-  // };
+  ////////////////////////////////////
+  const editContactHandler = async (Input, id) => {
+    try {
+      await updateContact(id, Input);
+      const { data } = await getContacts();
+      setContacts(data);
+    } catch (error) {}
+  };
   //////////////////////////////////
   const deleteHandler = async (id) => {
     try {
+      await deleteOneContact(id);
       const filteredContacts = Contacts.filter((c) => c.id !== id);
       setContacts(filteredContacts);
-      await deleteOneContact(id);
-    } catch (error) {}
+    } catch (error) {
+      console.log("error...");
+    }
   };
   // const deleteHandler = (id) => {
   //   console.log("clicked", id);
@@ -55,6 +55,12 @@ const ContactList = () => {
 
   return (
     <Switch>
+      <Route
+        path="/edit/:id"
+        component={(props) => (
+          <EditContact editContactHandler={editContactHandler} {...props} />
+        )}
+      />
       <Route path="/user/:id" component={ContactDetail} />
       <Route
         path="/add"

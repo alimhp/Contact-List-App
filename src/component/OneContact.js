@@ -9,8 +9,12 @@ const OneContact = ({ user, ondelete }) => {
             <p>email: {user.email}</p>
           </div>
         </Link>
-
-        <button onClick={() => ondelete(user.id)}>delete</button>
+        <div>
+          <Link to={`/edit/${user.id}`}>
+            <button className="editBtn">Edit</button>
+          </Link>
+          <button onClick={() => ondelete(user.id)}>delete</button>
+        </div>
       </div>
     </div>
   );
